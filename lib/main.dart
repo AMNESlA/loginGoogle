@@ -13,11 +13,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser _user;
-  
+
   GoogleSignIn _googleSignIn = new GoogleSignIn();
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -51,10 +50,10 @@ class _MyAppState extends State<MyApp> {
                     },
                     child: Text("SignIn with Goolge"),
                   ),
-                )
-            ),
+                )),
     );
   }
+
   bool isSignIn = false;
 
   Future<void> handleSignIn() async {
@@ -75,7 +74,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-    Future<void> gooleSignout() async {
+  Future<void> gooleSignout() async {
     await _auth.signOut().then((onValue) {
       _googleSignIn.signOut();
       setState(() {
